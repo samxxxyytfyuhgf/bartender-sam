@@ -1,86 +1,1345 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bartender Sam</title>
+
+    <title>Bartender Sam | Junior Bartender</title>
+
+    <meta name="description" content="Bartender Sam - Junior Bartender portfolio, cocktail knowledge, bar skills and experience.">
 
     <style>
-        body {
+
+        * {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #111;
-            color: white;
-            text-align: center;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        header {
-            padding: 50px 20px;
-            background: #1c1c1c;
+        html {
+            scroll-behavior: smooth;
         }
 
-        h1 {
-            font-size: 40px;
+        body {
+            background: #0b0b0b;
+            color: #f5f5f5;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(11, 11, 11, 0.94);
+            border-bottom: 1px solid #252525;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-inner {
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #d6a84f;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #bbbbbb;
+            font-size: 14px;
+            transition: 0.25s;
+        }
+
+        .nav-links a:hover {
+            color: #d6a84f;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 110px 0 80px;
+            background:
+                radial-gradient(circle at 80% 30%, rgba(214, 168, 79, 0.10), transparent 35%),
+                linear-gradient(180deg, #0b0b0b 0%, #111111 100%);
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero-label {
+            color: #d6a84f;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 10vw, 100px);
+            line-height: 0.95;
+            letter-spacing: -3px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #d6a84f;
+        }
+
+        .hero-text {
+            max-width: 700px;
+            color: #bdbdbd;
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+
+        .hero-button {
+            display: inline-block;
+            padding: 14px 25px;
+            border: 1px solid #d6a84f;
+            color: #d6a84f;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: 0.25s;
+        }
+
+        .hero-button:hover {
+            background: #d6a84f;
+            color: #0b0b0b;
+        }
+
+        /* GENERAL SECTIONS */
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-label {
+            color: #d6a84f;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(32px, 6vw, 55px);
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .section-text {
+            color: #a9a9a9;
+            max-width: 760px;
+            font-size: 17px;
+            line-height: 1.9;
+        }
+
+        /* ABOUT */
+
+        #about {
+            background: #101010;
+            border-top: 1px solid #202020;
+            border-bottom: 1px solid #202020;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 0.8fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-quote {
+            margin-top: 35px;
+            padding-left: 20px;
+            border-left: 2px solid #d6a84f;
+            color: #dddddd;
+            font-size: 18px;
+            font-style: italic;
+        }
+
+        .about-card {
+            padding: 35px;
+            border: 1px solid #292929;
+            background: #0b0b0b;
+        }
+
+        .about-number {
+            color: #d6a84f;
+            font-size: 52px;
+            font-weight: 800;
+            line-height: 1;
             margin-bottom: 10px;
         }
 
-        p {
-            color: #bbb;
-            font-size: 18px;
+        .about-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
         }
 
-        .button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 14px 25px;
-            background: white;
-            color: #111;
-            text-decoration: none;
-            border-radius: 10px;
-            font-weight: bold;
+        .about-card p {
+            color: #8f8f8f;
+            font-size: 14px;
         }
 
-        .section {
-            padding: 40px 20px;
+        /* MOBILE */
+
+        @media (max-width: 750px) {
+
+            .nav-inner {
+                min-height: 60px;
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .hero {
+                min-height: 90vh;
+                padding-top: 100px;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .hero-text {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 75px 0;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
         }
 
-        .card {
-            background: #1c1c1c;
-            padding: 25px;
-            margin: 15px auto;
-            border-radius: 15px;
-            max-width: 400px;
-        }
     </style>
+
 </head>
 
 <body>
 
-    <header>
-        <h1>Bartender Sam</h1>
-        <p>Cocktails, bar knowledge and hospitality</p>
+    <!-- NAVIGATION -->
 
-        <a href="#about" class="button">Explore</a>
-    </header>
+    <nav>
 
-    <section class="section" id="about">
+        <div class="container nav-inner">
 
-        <div class="card">
-            <h2>🍸 Cocktails</h2>
-            <p>Discover classic and signature cocktails.</p>
+            <a href="#home" class="logo">
+                SAM
+            </a>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#about">About</a>
+                </li>
+
+                <li>
+                    <a href="#cocktails">Cocktails</a>
+                </li>
+
+                <li>
+                    <a href="#skills">Skills</a>
+                </li>
+
+                <li>
+                    <a href="#experience">Experience</a>
+                </li>
+
+            </ul>
+
         </div>
 
-        <div class="card">
-            <h2>🍋 Bar Knowledge</h2>
-            <p>Learn about spirits, ingredients, tools and techniques.</p>
-        </div>
+    </nav>
 
-        <div class="card">
-            <h2>🔥 Bartender Sam</h2>
-            <p>A bartender building his skills, one drink at a time.</p>
-        </div>
 
-    </section>
+    <main>
+
+        <!-- HERO -->
+
+        <section class="hero" id="home">
+
+            <div class="container">
+
+                <div class="hero-content">
+
+                    <div class="hero-label">
+                        Junior Bartender
+                    </div>
+
+                    <h1>
+                        BARTENDER<br>
+                        <span>SAM</span>
+                    </h1>
+
+                    <p class="hero-text">
+                        Crafting cocktails. Building experience.
+                        Learning through pressure, precision and
+                        the real work behind the bar.
+                    </p>
+
+                    <a href="#cocktails" class="hero-button">
+                        EXPLORE COCKTAILS
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+
+        <section id="about">
+
+            <div class="container">
+
+                <div class="about-grid">
+
+                    <div>
+
+                        <div class="section-label">
+                            About Sam
+                        </div>
+
+                        <h2 class="section-title">
+                            Built by the real work behind the bar.
+                        </h2>
+
+                        <p class="section-text">
+                            Started young, I experienced more than most
+                            people my age ever had the chance to.
+                            What began with almost no experience became
+                            years of learning, pressure, responsibility
+                            and growth.
+                        </p>
+
+                        <p class="section-text" style="margin-top: 20px;">
+                            My hands learned the work through squeezing
+                            countless lemons, cutting garnishes,
+                            cleaning, preparing, serving and doing
+                            whatever the bar needed.
+                        </p>
+
+                        <p class="section-text" style="margin-top: 20px;">
+                            From those moments, I became someone who can
+                            rely on himself even in the toughest and
+                            busiest situations behind the bar.
+                        </p>
+
+                        <div class="about-quote">
+                            “The work teaches you what the textbook never can.”
+                        </div>
+
+                    </div>
+
+
+                    <div class="about-card">
+
+                        <div class="about-number">
+                            03+
+                        </div>
+
+                        <h3>
+                            Years Behind The Bar
+                        </h3>
+
+                        <p>
+                            Learning through real service,
+                            busy shifts, pressure and daily
+                            hands-on experience.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- NEXT SECTIONS WILL BE ADDED IN THE FOLLOWING PARTS -->        <!-- COCKTAIL LIBRARY -->
+
+        <section id="cocktails">
+
+            <div class="container">
+
+                <div class="section-label">
+                    Cocktail Library
+                </div>
+
+                <h2 class="section-title">
+                    Cocktails I Know.
+                </h2>
+
+                <p class="section-text">
+                    A collection of classic, modern and house-style
+                    cocktails built from real bar experience.
+                </p>
+
+
+                <!-- FILTERS -->
+
+                <div class="filter-area">
+
+                    <div class="filter-group">
+
+                        <div class="filter-title">
+                            Category
+                        </div>
+
+                        <div class="filter-buttons">
+
+                            <button class="filter-btn active">
+                                All
+                            </button>
+
+                            <button class="filter-btn">
+                                Classics
+                            </button>
+
+                            <button class="filter-btn">
+                                Sours
+                            </button>
+
+                            <button class="filter-btn">
+                                Martinis
+                            </button>
+
+                            <button class="filter-btn">
+                                Spritz
+                            </button>
+
+                            <button class="filter-btn">
+                                Highballs
+                            </button>
+
+                            <button class="filter-btn">
+                                Tiki / Tropical
+                            </button>
+
+                            <button class="filter-btn">
+                                Signature
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="filter-group">
+
+                        <div class="filter-title">
+                            Base Spirit
+                        </div>
+
+                        <div class="filter-buttons">
+
+                            <button class="filter-btn">
+                                All
+                            </button>
+
+                            <button class="filter-btn">
+                                Gin
+                            </button>
+
+                            <button class="filter-btn">
+                                Vodka
+                            </button>
+
+                            <button class="filter-btn">
+                                Rum
+                            </button>
+
+                            <button class="filter-btn">
+                                Tequila
+                            </button>
+
+                            <button class="filter-btn">
+                                Whiskey
+                            </button>
+
+                            <button class="filter-btn">
+                                Liqueur
+                            </button>
+
+                            <button class="filter-btn">
+                                Absinthe
+                            </button>
+
+                            <button class="filter-btn">
+                                Wine / Sparkling
+                            </button>
+
+                            <button class="filter-btn">
+                                Multiple Spirits
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="filter-group">
+
+                        <div class="filter-title">
+                            Taste
+                        </div>
+
+                        <div class="filter-buttons">
+
+                            <button class="filter-btn">
+                                All
+                            </button>
+
+                            <button class="filter-btn">
+                                Sweet
+                            </button>
+
+                            <button class="filter-btn">
+                                Sour
+                            </button>
+
+                            <button class="filter-btn">
+                                Bitter
+                            </button>
+
+                            <button class="filter-btn">
+                                Fruity
+                            </button>
+
+                            <button class="filter-btn">
+                                Fresh
+                            </button>
+
+                            <button class="filter-btn">
+                                Strong
+                            </button>
+
+                            <button class="filter-btn">
+                                Refreshing
+                            </button>
+
+                            <button class="filter-btn">
+                                Balanced
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SEARCH -->
+
+                <div class="cocktail-search">
+
+                    <input
+                        type="text"
+                        id="cocktailSearch"
+                        placeholder="Search cocktails..."
+                    >
+
+                </div>
+
+
+                <!-- COCKTAIL GRID -->
+
+                <div class="cocktail-grid" id="cocktailGrid">
+
+                    <div class="cocktail-card">
+
+                        <div class="cocktail-number">
+                            01
+                        </div>
+
+                        <h3>
+                            Daiquiri
+                        </h3>
+
+                        <div class="cocktail-tags">
+
+                            <span>
+                                Classic
+                            </span>
+
+                            <span>
+                                Rum
+                            </span>
+
+                            <span>
+                                Sour
+                            </span>
+
+                        </div>
+
+                        <button class="recipe-button">
+                            VIEW RECIPE
+                        </button>
+
+                    </div>
+
+
+                    <div class="cocktail-card">
+
+                        <div class="cocktail-number">
+                            02
+                        </div>
+
+                        <h3>
+                            Gin Basil
+                        </h3>
+
+                        <div class="cocktail-tags">
+
+                            <span>
+                                Sour
+                            </span>
+
+                            <span>
+                                Gin
+                            </span>
+
+                            <span>
+                                Fresh
+                            </span>
+
+                        </div>
+
+                        <button class="recipe-button">
+                            VIEW RECIPE
+                        </button>
+
+                    </div>
+
+
+                    <div class="cocktail-card">
+
+                        <div class="cocktail-number">
+                            03
+                        </div>
+
+                        <h3>
+                            Moscow Mule
+                        </h3>
+
+                        <div class="cocktail-tags">
+
+                            <span>
+                                Highball
+                            </span>
+
+                            <span>
+                                Vodka
+                            </span>
+
+                            <span>
+                                Refreshing
+                            </span>
+
+                        </div>
+
+                        <button class="recipe-button">
+                            VIEW RECIPE
+                        </button>
+
+                    </div>
+
+
+                    <div class="cocktail-card">
+
+                        <div class="cocktail-number">
+                            04
+                        </div>
+
+                        <h3>
+                            Gin Fizz
+                        </h3>
+
+                        <div class="cocktail-tags">
+
+                            <span>
+                                Classic
+                            </span>
+
+                            <span>
+                                Gin
+                            </span>
+
+                            <span>
+                                Refreshing
+                            </span>
+
+                        </div>
+
+                        <button class="recipe-button">
+                            VIEW RECIPE
+                        </button>
+
+                    </div>
+
+
+                    <div class="cocktail-card">
+
+                        <div class="cocktail-number">
+                            05
+                        </div>
+
+                        <h3>
+                            Espresso Martini
+                        </h3>
+
+                        <div class="cocktail-tags">
+
+                            <span>
+                                Martini
+                            </span>
+
+                            <span>
+                                Vodka
+                            </span>
+
+                            <span>
+                                Strong
+                            </span>
+
+                        </div>
+
+                        <button class="recipe-button">
+                            VIEW RECIPE
+                        </button>
+
+                    </div>
+
+
+                    <div class="cocktail-card">
+
+                        <div class="cocktail-number">
+                            06
+                        </div>
+
+                        <h3>
+                            Old Fashioned
+                        </h3>
+
+                        <div class="cocktail-tags">
+
+                            <span>
+                                Classic
+                            </span>
+
+                            <span>
+                                Whiskey
+                            </span>
+
+                            <span>
+                                Strong
+                            </span>
+
+                        </div>
+
+                        <button class="recipe-button">
+                            VIEW RECIPE
+                        </button>
+
+                    </div>
+
+
+                    <div class="cocktail-card">
+
+                        <div class="cocktail-number">
+                            07
+                        </div>
+
+                        <h3>
+                            Dry Martini
+                        </h3>
+
+                        <div class="cocktail-tags">
+
+                            <span>
+                                Martini
+                            </span>
+
+                            <span>
+                                Gin
+                            </span>
+
+                            <span>
+                                Strong
+                            </span>
+
+                        </div>
+
+                        <button class="recipe-button">
+                            VIEW RECIPE
+                        </button>
+
+                    </div>
+
+
+                    <div class="cocktail-card">
+
+                        <div class="cocktail-number">
+                            08
+                        </div>
+
+                        <h3>
+                            Dirty Martini
+                        </h3>
+
+                        <div class="cocktail-tags">
+
+                            <span>
+                                Martini
+                            </span>
+
+                            <span>
+                                Vodka
+                            </span>
+
+                            <span>
+                                Balanced
+                            </span>
+
+                        </div>
+
+                        <button class="recipe-button">
+                            VIEW RECIPE
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="library-note">
+
+                    More cocktails are being added to the library.
+
+                </div>
+
+            </div>
+
+        </section><style>
+
+    /* COCKTAIL LIBRARY */
+
+    #cocktails {
+        background: #0b0b0b;
+    }
+
+    .filter-area {
+        margin-top: 45px;
+        padding: 25px;
+        border: 1px solid #252525;
+        background: #101010;
+    }
+
+    .filter-group {
+        margin-bottom: 25px;
+    }
+
+    .filter-group:last-child {
+        margin-bottom: 0;
+    }
+
+    .filter-title {
+        color: #d6a84f;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+    }
+
+    .filter-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .filter-btn {
+        border: 1px solid #303030;
+        background: #151515;
+        color: #999999;
+        padding: 9px 14px;
+        font-size: 12px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+        border-color: #d6a84f;
+        color: #d6a84f;
+    }
+
+    .cocktail-search {
+        margin: 30px 0;
+    }
+
+    .cocktail-search input {
+        width: 100%;
+        padding: 16px 18px;
+        background: #101010;
+        border: 1px solid #292929;
+        color: #ffffff;
+        outline: none;
+        font-size: 15px;
+    }
+
+    .cocktail-search input:focus {
+        border-color: #d6a84f;
+    }
+
+    .cocktail-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+    }
+
+    .cocktail-card {
+        min-height: 260px;
+        padding: 25px;
+        background: #111111;
+        border: 1px solid #252525;
+        position: relative;
+        transition: 0.25s;
+    }
+
+    .cocktail-card:hover {
+        transform: translateY(-4px);
+        border-color: #555555;
+    }
+
+    .cocktail-number {
+        color: #555555;
+        font-size: 12px;
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+
+    .cocktail-card h3 {
+        font-size: 22px;
+        margin-bottom: 18px;
+    }
+
+    .cocktail-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .cocktail-tags span {
+        padding: 5px 8px;
+        border: 1px solid #292929;
+        color: #999999;
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .recipe-button {
+        position: absolute;
+        left: 25px;
+        bottom: 22px;
+        background: none;
+        border: none;
+        padding: 0;
+        color: #d6a84f;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        cursor: pointer;
+    }
+
+    .library-note {
+        margin-top: 30px;
+        color: #666666;
+        font-size: 13px;
+    }
+
+    @media (max-width: 1000px) {
+
+        .cocktail-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+    }
+
+    @media (max-width: 600px) {
+
+        .filter-area {
+            padding: 18px;
+        }
+
+        .cocktail-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .cocktail-card {
+            min-height: 240px;
+        }
+
+    }
+
+</style>        <!-- SKILLS -->
+
+        <section id="skills">
+
+            <div class="container">
+
+                <div class="section-label">
+                    Bar Skills
+                </div>
+
+                <h2 class="section-title">
+                    Skills Built Through Service.
+                </h2>
+
+                <div class="skills-grid">
+
+                    <div class="skill-card">
+                        Cocktail Preparation
+                    </div>
+
+                    <div class="skill-card">
+                        Speed & Efficiency
+                    </div>
+
+                    <div class="skill-card">
+                        Working Under Pressure
+                    </div>
+
+                    <div class="skill-card">
+                        Bar Setup & Closing
+                    </div>
+
+                    <div class="skill-card">
+                        Guest Service
+                    </div>
+
+                    <div class="skill-card">
+                        Order Taking
+                    </div>
+
+                    <div class="skill-card">
+                        Omega POS
+                    </div>
+
+                    <div class="skill-card">
+                        Garnish Preparation
+                    </div>
+
+                    <div class="skill-card">
+                        Bar Organization
+                    </div>
+
+                    <div class="skill-card">
+                        Working Independently
+                    </div>
+
+                    <div class="skill-card">
+                        Handling Busy Events
+                    </div>
+
+                    <div class="skill-card">
+                        Basic Bar Knowledge
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- EXPERIENCE -->
+
+        <section id="experience">
+
+            <div class="container">
+
+                <div class="section-label">
+                    Experience
+                </div>
+
+                <h2 class="section-title">
+                    Three Years Behind The Bar.
+                </h2>
+
+                <div class="experience-card">
+
+                    <div class="experience-top">
+
+                        <div>
+
+                            <h3>
+                                Le Peche
+                            </h3>
+
+                            <p>
+                                Junior Bartender
+                            </p>
+
+                        </div>
+
+                        <div class="experience-date">
+                            2024 — 2026
+                        </div>
+
+                    </div>
+
+
+                    <ul class="experience-list">
+
+                        <li>
+                            Cocktail preparation and bar service
+                        </li>
+
+                        <li>
+                            Guest service and order taking
+                        </li>
+
+                        <li>
+                            Omega POS operation
+                        </li>
+
+                        <li>
+                            Bar setup, organization and closing
+                        </li>
+
+                        <li>
+                            Garnish preparation and daily bar preparation
+                        </li>
+
+                        <li>
+                            Working independently during busy service
+                        </li>
+
+                        <li>
+                            Handling high-pressure events and busy shifts
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </section>        <style>
+
+            /* SKILLS */
+
+            #skills {
+                background: #101010;
+                border-top: 1px solid #202020;
+            }
+
+            .skills-grid {
+                margin-top: 45px;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 12px;
+            }
+
+            .skill-card {
+                padding: 20px;
+                border: 1px solid #292929;
+                background: #0b0b0b;
+                color: #bdbdbd;
+                font-size: 14px;
+                transition: 0.25s;
+            }
+
+            .skill-card:hover {
+                border-color: #d6a84f;
+                color: #d6a84f;
+            }
+
+
+            /* EXPERIENCE */
+
+            #experience {
+                background: #0b0b0b;
+                border-top: 1px solid #202020;
+            }
+
+            .experience-card {
+                margin-top: 45px;
+                padding: 35px;
+                border: 1px solid #292929;
+                background: #101010;
+            }
+
+            .experience-top {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                gap: 30px;
+                margin-bottom: 30px;
+            }
+
+            .experience-top h3 {
+                font-size: 28px;
+                margin-bottom: 5px;
+            }
+
+            .experience-top p {
+                color: #d6a84f;
+                font-size: 14px;
+            }
+
+            .experience-date {
+                color: #777777;
+                font-size: 14px;
+                white-space: nowrap;
+            }
+
+            .experience-list {
+                list-style: none;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px 30px;
+            }
+
+            .experience-list li {
+                color: #a9a9a9;
+                font-size: 14px;
+                padding-left: 18px;
+                position: relative;
+            }
+
+            .experience-list li::before {
+                content: "•";
+                color: #d6a84f;
+                position: absolute;
+                left: 0;
+            }
+
+
+            /* FOOTER */
+
+            footer {
+                padding: 35px 0;
+                border-top: 1px solid #252525;
+                background: #080808;
+                text-align: center;
+            }
+
+            footer p {
+                color: #666666;
+                font-size: 12px;
+            }
+
+
+            /* MOBILE */
+
+            @media (max-width: 900px) {
+
+                .skills-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+            }
+
+            @media (max-width: 600px) {
+
+                .experience-card {
+                    padding: 25px;
+                }
+
+                .experience-top {
+                    flex-direction: column;
+                    gap: 8px;
+                }
+
+                .experience-list {
+                    grid-template-columns: 1fr;
+                }
+
+                .skills-grid {
+                    grid-template-columns: 1fr;
+                }
+
+            }
+
+        </style>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <div class="container">
+
+                <p>
+                    © 2026 Bartender Sam. Built from real bar experience.
+                </p>
+
+            </div>
+
+        </footer>
+
+    </main>
 
 </body>
+
 </html>
