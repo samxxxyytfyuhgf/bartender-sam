@@ -1340,6 +1340,292 @@
 
     </main>
 
-</body>
+<script>const cocktails = [
+  {name:"Daiquiri",category:"Classics",spirit:"Rum",taste:["Sour","Fresh","Balanced"],ingredients:["6 cl White Rum","2.5 cl Lemon Juice","1.5 cl Simple Syrup"],method:"Shake with ice.",glass:"Short glass",garnish:"Dehydrated lime"},
+  {name:"Gin Basil",category:"Sours",spirit:"Gin",taste:["Sour","Fresh","Balanced"],ingredients:["5 cl Gin","2.5 cl Lemon Juice","2.5 cl Simple Syrup","5 Basil Leaves"],method:"Shake with ice.",glass:"Short glass",garnish:"Basil leaves"},
+  {name:"Moscow / London / Mexican Mule",category:"Highballs",spirit:"Multiple Spirits",taste:["Sour","Fresh","Refreshing"],ingredients:["6 cl Gin / Vodka / Tequila","2.5 cl Lemon Juice","2.5 cl Simple Syrup","3 dashes Aromatic Bitters","4 dashes Orange Bitters","Top Soda"],method:"Shake and top with soda.",glass:"Copper glass",garnish:"Cucumber"},
+  {name:"Gin Fizz",category:"Highballs",spirit:"Gin",taste:["Sour","Fresh","Refreshing"],ingredients:["6 cl Gin","2.5 cl Lemon Juice","2.5 cl Simple Syrup","Top Soda"],method:"Shake and top with soda.",glass:"Long glass",garnish:"Lemon zest"},
+  {name:"Espresso Martini",category:"Martinis",spirit:"Vodka",taste:["Strong","Sweet","Balanced"],ingredients:["6 cl Vodka","2.5 cl Coffee Liqueur","1 Shot Espresso"],method:"Shake hard with ice.",glass:"Martini glass",garnish:"Coffee powder"},
+  {name:"Old Fashioned",category:"Classics",spirit:"Whiskey",taste:["Strong","Bitter","Balanced"],ingredients:["6 cl Bourbon","1 cl Simple Syrup","1 Bar Spoon Soda","3 dashes Orange Bitters","2 dashes Aromatic Bitters"],method:"Stir with ice.",glass:"Old Fashioned glass",garnish:"Orange zest"},
+  {name:"Dry Martini",category:"Martinis",spirit:"Gin",taste:["Strong","Bitter","Balanced"],ingredients:["6 cl Dry Gin","1.5 cl Dry Vermouth","2 dashes Orange Bitters"],method:"Stir with ice.",glass:"Martini glass",garnish:"Lemon zest"},
+  {name:"Dirty Martini",category:"Martinis",spirit:"Vodka",taste:["Strong","Balanced"],ingredients:["6 cl Vodka","1.5 cl Dry Vermouth","1.5 cl Olive Brine"],method:"Stir with ice.",glass:"Martini glass",garnish:"Olives"},
+  {name:"Dry Vodka Martini",category:"Martinis",spirit:"Vodka",taste:["Strong","Bitter","Balanced"],ingredients:["6 cl Vodka","1.5 cl Dry Vermouth","2 dashes Orange Bitters"],method:"Stir with ice.",glass:"Martini glass",garnish:"Lemon zest"},
+  {name:"Manhattan",category:"Classics",spirit:"Whiskey",taste:["Strong","Sweet","Bitter","Balanced"],ingredients:["4.5 cl Rye Whiskey","2.5 cl Vermouth Rosso","2 dashes Bitters"],method:"Stir with ice.",glass:"Short glass",garnish:"Cherry"},
+  {name:"Mojito",category:"Highballs",spirit:"Rum",taste:["Sweet","Sour","Fresh","Refreshing"],ingredients:["6 cl White Rum","2.5 cl Lemon Juice","2.5 cl Simple Syrup","12 Mint Sprigs","Top Soda"],method:"Build and top with soda.",glass:"Long glass",garnish:"Mint bouquet"},
+  {name:"Cosmopolitan",category:"Martinis",spirit:"Vodka",taste:["Sweet","Sour","Fruity","Balanced"],ingredients:["4.5 cl Vodka","4.5 cl Cranberry","1.5 cl Lemon Juice","2 cl Triple Sec"],method:"Shake and chill.",glass:"Martini glass",garnish:"Orange zest"},
+  {name:"Sex On The Beach",category:"Highballs",spirit:"Vodka",taste:["Sweet","Fruity","Refreshing"],ingredients:["3 cl Vodka","2.5 cl Peach Liqueur","3 cl Cranberry Juice","3 cl Orange Juice","1 cl Grenadine"],method:"Shake with ice.",glass:"Long glass",garnish:"Orange slice"},
+  {name:"Long Island",category:"Highballs",spirit:"Multiple Spirits",taste:["Strong","Sour","Refreshing"],ingredients:["1.5 cl Vodka","1.5 cl Gin","1.5 cl Rum","1.5 cl Tequila","1.5 cl Triple Sec","1.5 cl Lemon Juice","1.5 cl Simple Syrup","Top Diet Pepsi / Pepsi"],method:"Shake and top with Pepsi.",glass:"Long glass",garnish:"Lemon slice"},
+  {name:"Amaretto Sour",category:"Sours",spirit:"Liqueur",taste:["Sweet","Sour","Balanced"],ingredients:["5 cl Amaretto","2.5 cl Lemon Juice","2.5 cl Simple Syrup"],method:"Shake with ice.",glass:"Short glass",garnish:"Lemon zest"},
+  {name:"Aperol Spritz",category:"Spritz",spirit:"Wine / Sparkling",taste:["Bitter","Fruity","Refreshing"],ingredients:["3 cl Aperol","6 cl Prosecco","Top Soda"],method:"Build over ice.",glass:"Wine glass",garnish:"Orange slice"},
+  {name:"Americano",category:"Classics",spirit:"Liqueur",taste:["Bitter","Refreshing","Balanced"],ingredients:["4.5 cl Campari","4.5 cl Sweet Vermouth","Top Tonic"],method:"Stir.",glass:"Old Fashioned glass",garnish:"Orange zest"},
+  {name:"Negroni",category:"Classics",spirit:"Gin",taste:["Bitter","Strong","Balanced"],ingredients:["3 cl Campari","3 cl Sweet Vermouth","3 cl Gin"],method:"Stir with ice.",glass:"Old Fashioned glass",garnish:"Orange zest"},
+  {name:"Campari Spritz",category:"Spritz",spirit:"Wine / Sparkling",taste:["Bitter","Refreshing"],ingredients:["3 cl Campari","6 cl Prosecco","Top Soda"],method:"Build over ice.",glass:"Wine glass",garnish:"Orange slice"},
+  {name:"Hugo",category:"Spritz",spirit:"Wine / Sparkling",taste:["Sweet","Fresh","Refreshing"],ingredients:["2.5 cl Elderflower Liqueur","6 cl Prosecco","Top Soda"],method:"Build over ice.",glass:"Wine glass",garnish:"Mint leaves"},
+  {name:"Boulevardier",category:"Classics",spirit:"Whiskey",taste:["Bitter","Strong","Sweet","Balanced"],ingredients:["4.5 cl Rye Whiskey","2.5 cl Sweet Vermouth","2.5 cl Campari","2 dashes Angostura Bitters"],method:"Stir with ice.",glass:"Old Fashioned glass",garnish:"Orange zest"},
+  {name:"French 75",category:"Spritz",spirit:"Gin",taste:["Sour","Fresh","Refreshing"],ingredients:["3 cl Gin","1.5 cl Lemon Juice","1.5 cl Simple Syrup","Top Prosecco"],method:"Shake and top with Prosecco.",glass:"Flute glass",garnish:"Long lemon zest"},
+  {name:"Vodka Sour",category:"Sours",spirit:"Vodka",taste:["Sour","Fresh","Balanced"],ingredients:["6 cl Vodka","2.5 cl Lemon Juice","2.5 cl Simple Syrup","2 dashes Blossom Water"],method:"Shake with ice.",glass:"Short glass",garnish:"Lemon slice"},
+  {name:"Gin Sour",category:"Sours",spirit:"Gin",taste:["Sour","Fresh","Balanced"],ingredients:["6 cl Gin","2.5 cl Lemon Juice","2.5 cl Simple Syrup","2 dashes Blossom Water"],method:"Shake with ice.",glass:"Short glass",garnish:"Lemon slice"},
+  {name:"Tequila Sour",category:"Sours",spirit:"Tequila",taste:["Sour","Fresh","Balanced"],ingredients:["6 cl White Tequila","2.5 cl Lemon Juice","2.5 cl Simple Syrup"],method:"Shake with ice.",glass:"Short glass",garnish:"Lemon slice"},
+  {name:"Margarita",category:"Classics",spirit:"Tequila",taste:["Sour","Fruity","Refreshing"],ingredients:["3 cl White Tequila","3 cl Gold Tequila","3 cl Lemon Juice","2.5 cl Triple Sec"],method:"Shake and salt the rim.",glass:"Short glass",garnish:"Dehydrated lemon"},
+  {name:"Vodka Gimlet",category:"Classics",spirit:"Vodka",taste:["Sour","Fresh","Balanced"],ingredients:["6 cl Vodka","2.5 cl Lemon Juice","1.5 cl Simple Syrup"],method:"Shake and chill.",glass:"Small wine glass",garnish:"Dehydrated lemon"},
+  {name:"Gin Gimlet",category:"Classics",spirit:"Gin",taste:["Sour","Fresh","Balanced"],ingredients:["6 cl Gin","2.5 cl Lime Juice","1.5 cl Simple Syrup"],method:"Shake and chill.",glass:"Small wine glass",garnish:"Dehydrated lemon"},
+  {name:"Whiskey Sour",category:"Sours",spirit:"Whiskey",taste:["Sour","Strong","Balanced"],ingredients:["3 cl Bourbon","3 cl Glenbay","2.5 cl Lemon Juice","2.5 cl Simple Syrup","3 dashes Aromatic Bitters"],method:"Shake with ice.",glass:"Short glass",garnish:"Orange zest"},
+  {name:"Caipirinha",category:"Classics",spirit:"Rum",taste:["Sour","Fresh","Refreshing"],ingredients:["6 cl Cachaça","2.5 cl Lemon Juice","1.5 cl Simple Syrup"],method:"Shake with ice.",glass:"Short glass",garnish:"Dehydrated lime"},
+  {name:"Caipiroska",category:"Classics",spirit:"Vodka",taste:["Sour","Fresh","Refreshing"],ingredients:["6 cl Vodka","2.5 cl Lemon Juice","1.5 cl Simple Syrup"],method:"Shake with ice.",glass:"Short glass",garnish:"Dehydrated lime"},
+  {name:"BullFrog",category:"Highballs",spirit:"Multiple Spirits",taste:["Strong","Sweet","Refreshing"],ingredients:["1.5 cl Vodka","1.5 cl Gin","1.5 cl Rum","1.5 cl Tequila","1.5 cl Blue Curaçao","Top Energy Drink"],method:"Shake and add energy drink.",glass:"Long glass",garnish:"Orange slice"},
+  {name:"Black Russian",category:"Classics",spirit:"Vodka",taste:["Sweet","Strong"],ingredients:["2.5 cl Coffee Liqueur","6 cl Vodka"],method:"Build over ice.",glass:"Short glass",garnish:"None"},
+  {name:"White Russian",category:"Classics",spirit:"Vodka",taste:["Sweet","Strong","Balanced"],ingredients:["2.5 cl Coffee Liqueur","1.5 cl Irish Cream","6 cl Vodka"],method:"Build over ice.",glass:"Short glass",garnish:"None"},
+  {name:"Midori Sour",category:"Sours",spirit:"Liqueur",taste:["Sweet","Sour","Fruity"],ingredients:["3 cl Midori","2 cl Vodka","2.5 cl Lemon Juice","2.5 cl Simple Syrup"],method:"Shake with ice.",glass:"Short glass",garnish:"Lemon slice"},
+  {name:"Absent Sour",category:"Sours",spirit:"Absinthe",taste:["Strong","Sour","Balanced"],ingredients:["5 cl Absinthe","2.5 cl Lemon Juice","2.5 cl Simple Syrup"],method:"Shake with ice.",glass:"Short glass",garnish:"Lemon slice"},
+  {name:"New York Sour",category:"Sours",spirit:"Whiskey",taste:["Sour","Strong","Fruity"],ingredients:["5 cl Rye Whiskey","2 cl Lemon Juice","2 cl Simple Syrup","Top Red Wine"],method:"Shake and float red wine.",glass:"Old Fashioned glass",garnish:"Lemon zest"},
+  {name:"Bloody Mary",category:"Classics",spirit:"Vodka",taste:["Sour","Strong","Fresh","Balanced"],ingredients:["6 cl Vodka","3 cl Lemon","9 cl Tomato Juice","2 cl Worcestershire","3 drops Tabasco","Salt and Pepper"],method:"Roll gently.",glass:"Long glass",garnish:"Mint"},
+  {name:"Passion Martini",category:"Martinis",spirit:"Vodka",taste:["Sweet","Sour","Fruity"],ingredients:["6 cl Vodka","5 cl Passion Purée","1.5 cl Lemon Juice","1.5 cl Simple Syrup"],method:"Shake with ice.",glass:"Martini glass",garnish:"Dehydrated lemon"},
+  {name:"Piña Colada",category:"Tiki / Tropical",spirit:"Rum",taste:["Sweet","Fruity","Refreshing"],ingredients:["5 cl Rum","6 cl Pineapple Juice","2 cl Coconut Syrup"],method:"Blend frozen.",glass:"Long glass",garnish:"Orange slice"},
+  {name:"June 31",category:"Tiki / Tropical",spirit:"Multiple Spirits",taste:["Sweet","Fruity","Strong"],ingredients:["2 cl Rum","2 cl Gin","2.5 cl Triple Sec","4 cl Pineapple Juice","4 cl Cranberry Juice","3 cl Passion Purée","1 cl Coconut Syrup","1 cl Simple Syrup"],method:"Shake with crushed ice.",glass:"June 31 glass",garnish:"Mint leaves"},
+  {name:"Genovese Lebanese",category:"Signature",spirit:"Vodka",taste:["Sour","Fresh","Strong","Balanced"],ingredients:["5 Cherry Tomatoes","3 Basil Leaves","2 dashes Tabasco","2 dashes Aromatic Bitters","3 cl Lemon Juice","3 cl Homemade Sumac","6 cl Vodka","1/2 bar spoon Citric Acid"],method:"Muddle and hard shake.",glass:"Genovese glass",garnish:"Salt and sumac rim, basil leaf, dehydrated tomato"},
+  {name:"Sun Kissed Rose",category:"Signature",spirit:"Wine / Sparkling",taste:["Sweet","Fruity","Fresh","Refreshing"],ingredients:["3 cl Gin","2 cl Rose Syrup","1 cl Lemon","6 cl Prosecco"],method:"Shake and build.",glass:"Long wine glass",garnish:"Dehydrated rose"},
+  {name:"SOLE E PEPE",category:"Signature",spirit:"Gin",taste:["Sour","Fresh","Strong","Balanced"],ingredients:["8 Mint Leaves","1/4 Fresh Lemon","1/2 bar spoon Black Pepper","6 cl Gin","3 cl Lemon Juice","2.5 cl Home Pepper Syrup"],method:"Muddle and shake.",glass:"SOLE glass",garnish:"Black pepper top, mint bouquet"}
+];
 
+const grid = document.querySelector(".cocktail-grid");
+const searchInput = document.querySelector(".search-input");
+const filterGroups = document.querySelectorAll(".filter-group");
+
+let selected = {
+  category: "All",
+  spirit: "All",
+  taste: "All"
+};
+
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, char => ({
+    "&":"&amp;",
+    "<":"&lt;",
+    ">":"&gt;",
+    '"':"&quot;",
+    "'":"&#039;"
+  }[char]));
+}
+
+function getGroupType(group) {
+  const title = group.querySelector(".filter-title");
+  const text = title ? title.textContent.toLowerCase() : "";
+  if (text.includes("category")) return "category";
+  if (text.includes("spirit")) return "spirit";
+  if (text.includes("taste")) return "taste";
+  return null;
+}
+
+function renderCocktails() {
+  if (!grid) return;
+
+  const query = searchInput ? searchInput.value.toLowerCase().trim() : "";
+
+  const filtered = cocktails.filter(cocktail => {
+    const matchesSearch = cocktail.name.toLowerCase().includes(query);
+    const matchesCategory =
+      selected.category === "All" ||
+      cocktail.category === selected.category;
+    const matchesSpirit =
+      selected.spirit === "All" ||
+      cocktail.spirit === selected.spirit;
+    const matchesTaste =
+      selected.taste === "All" ||
+      cocktail.taste.includes(selected.taste);
+
+    return matchesSearch && matchesCategory && matchesSpirit && matchesTaste;
+  });
+
+  if (!filtered.length) {
+    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:#aaa;">No cocktails found.</div>';
+    return;
+  }
+
+  grid.innerHTML = filtered.map(cocktail => {
+    const index = cocktails.indexOf(cocktail);
+    return `
+      <article class="cocktail-card">
+        <div class="cocktail-card-content">
+          <div class="cocktail-tags">
+            <span>${escapeHTML(cocktail.category)}</span>
+            <span>${escapeHTML(cocktail.spirit)}</span>
+          </div>
+          <h3>${escapeHTML(cocktail.name)}</h3>
+          <div class="cocktail-taste">
+            ${cocktail.taste.slice(0,3).map(t => `<span>${escapeHTML(t)}</span>`).join("")}
+          </div>
+          <button class="recipe-btn" data-index="${index}">VIEW RECIPE</button>
+        </div>
+      </article>
+    `;
+  }).join("");
+
+  grid.querySelectorAll(".recipe-btn").forEach(button => {
+    button.addEventListener("click", () => {
+      openRecipe(Number(button.dataset.index));
+    });
+  });
+}
+
+function createModal() {
+  if (document.getElementById("recipeModal")) return;
+
+  const style = document.createElement("style");
+  style.textContent = `
+    .recipe-modal {
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.82);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      z-index:9999;
+    }
+    .recipe-modal.active { display:flex; }
+    .recipe-box {
+      width:min(620px,100%);
+      max-height:90vh;
+      overflow-y:auto;
+      background:#151515;
+      border:1px solid rgba(212,170,80,.35);
+      border-radius:14px;
+      padding:28px;
+      position:relative;
+      box-shadow:0 20px 80px rgba(0,0,0,.6);
+    }
+    .recipe-close {
+      position:absolute;
+      right:16px;
+      top:12px;
+      background:none;
+      border:0;
+      color:#aaa;
+      font-size:28px;
+      cursor:pointer;
+    }
+    .recipe-box h2 {
+      margin:0 35px 8px 0;
+      color:#d8b15a;
+    }
+    .recipe-sub {
+      color:#999;
+      margin-bottom:22px;
+    }
+    .recipe-section {
+      margin-top:20px;
+    }
+    .recipe-section h4 {
+      color:#d8b15a;
+      margin-bottom:9px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      font-size:12px;
+    }
+    .recipe-section ul {
+      margin:0;
+      padding-left:20px;
+      color:#ddd;
+      line-height:1.8;
+    }
+    .recipe-detail {
+      color:#ddd;
+      line-height:1.7;
+    }
+  `;
+  document.head.appendChild(style);
+
+  const modal = document.createElement("div");
+  modal.id = "recipeModal";
+  modal.className = "recipe-modal";
+  modal.innerHTML = `
+    <div class="recipe-box">
+      <button class="recipe-close" aria-label="Close">&times;</button>
+      <h2 id="recipeTitle"></h2>
+      <div class="recipe-sub" id="recipeTags"></div>
+
+      <div class="recipe-section">
+        <h4>Ingredients</h4>
+        <ul id="recipeIngredients"></ul>
+      </div>
+
+      <div class="recipe-section">
+        <h4>Method</h4>
+        <div class="recipe-detail" id="recipeMethod"></div>
+      </div>
+
+      <div class="recipe-section">
+        <h4>Glass</h4>
+        <div class="recipe-detail" id="recipeGlass"></div>
+      </div>
+
+      <div class="recipe-section">
+        <h4>Garnish</h4>
+        <div class="recipe-detail" id="recipeGarnish"></div>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+
+  modal.querySelector(".recipe-close").addEventListener("click", closeRecipe);
+
+  modal.addEventListener("click", event => {
+    if (event.target === modal) closeRecipe();
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") closeRecipe();
+  });
+}
+
+function openRecipe(index) {
+  const cocktail = cocktails[index];
+  if (!cocktail) return;
+
+  createModal();
+
+  document.getElementById("recipeTitle").textContent = cocktail.name;
+  document.getElementById("recipeTags").textContent =
+    `${cocktail.category} · ${cocktail.spirit} · ${cocktail.taste.join(" · ")}`;
+
+  document.getElementById("recipeIngredients").innerHTML =
+    cocktail.ingredients.map(item => `<li>${escapeHTML(item)}</li>`).join("");
+
+  document.getElementById("recipeMethod").textContent = cocktail.method;
+  document.getElementById("recipeGlass").textContent = cocktail.glass;
+  document.getElementById("recipeGarnish").textContent = cocktail.garnish;
+
+  document.getElementById("recipeModal").classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeRecipe() {
+  const modal = document.getElementById("recipeModal");
+  if (modal) modal.classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+filterGroups.forEach(group => {
+  const type = getGroupType(group);
+  if (!type) return;
+
+  group.querySelectorAll("button").forEach(button => {
+    button.addEventListener("click", () => {
+      group.querySelectorAll("button").forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      selected[type] = button.textContent.trim();
+      renderCocktails();
+    });
+  });
+});
+
+if (searchInput) {
+  searchInput.addEventListener("input", renderCocktails);
+}
+
+createModal();
+renderCocktails();
+</script></body>
 </html>
